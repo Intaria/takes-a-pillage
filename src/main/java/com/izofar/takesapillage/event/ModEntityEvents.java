@@ -56,14 +56,4 @@ public abstract class ModEntityEvents {
             CLAY_GOLEMS.removeAll(clayGolemQueue);
         }
     }
-
-    @SubscribeEvent
-    public static void preventMilkFromRemovingBadOmen(MobEffectEvent event) {
-        MobEffectInstance effectInstance;
-        if ((effectInstance = event.getEffectInstance()) != null
-                && effectInstance.getEffect().equals(MobEffects.BAD_OMEN)
-                && !ModCommonConfigs.REMOVE_BAD_OMEN.get()) {
-            event.getEffectInstance().setCurativeItems(ImmutableList.of());
-        }
-    }
 }
